@@ -1,0 +1,42 @@
+nejm=read.table(file="/Users/samuelahuno/Polak_lab10082019/bridges_breast/data/bridges.genes.freq.tsv",header = T,sep = '\t')
+setnames(nejm, old = c("gene","case","control"), new = c("Gene","ncases","ncontrols"))
+
+#colnames(nejm)=c("Gene","ncases","ncontrols")
+total_cases=48826
+total_controls=50703  
+nejm$fraq.cases=nejm$ncases/total_cases
+nejm$fraq.controls=nejm$ncontrols/total_controls
+
+
+##source
+biallelic_info <- stats.loh.tcga.all.tumor.types.AF %>% dplyr::filter (Type=="BRCA") %>% dplyr::select(c(Type,bridges_genes,freq_AF))
+nejm_biallelic_info <- merge(nejm,biallelic_info,by.x="Gene",by.y="bridges_genes")
+nejm_biallelic_info$expected_loh <- (nejm_biallelic_info$fraq.controls*nejm_biallelic_info$freq_AF)*10000
+  
+
+plot.expected.loh <- ggplot(nejm_biallelic_info,aes(x=Gene,y=expected_loh))+ geom_bar(stat="identity")+
+  scale_fill_hue()+ theme(axis.text.x = element_text(size=22,angle = 90, vjust = 1,hjust=1),
+                                               axis.text.y = element_text(size=22,angle = 90, vjust = 1,hjust=1),
+                                               axis.title=element_text(size=22)) 
+ggsave(filename = paste0("figures/plot.expected.loh.bridges.pdf"), plot = plot.expected.loh, width = 48, height = 28)
+
+##tuesday
+interest_g <- c("MLH1", "MSH6", "PMS2", "MSH2")
+nejm_biallelic_info %>% filter(Gene %in% c("MLH1","MSH6","PMS2","MSH2")) %>% mutate(expected_loh_msi = (fraq.controls*freq_AF)*100000) %>% summarise(sum(expected_loh_msi))
+
+
+#nejm$fraq.cases.1000=round(nejm$ncases/total_cases*1000)
+#nejm$fraq.controls.1000=round(nejm$ncontrols/total_controls*1000)
+
+#nejm$fraq.cases.10000=round(nejm$ncases/total_cases*10000)
+#nejm$fraq.controls.10000=round(nejm$ncontrols/total_controls*10000)
+
+
+#nejm$fraq.cases.3=round((total_cases*3)/nejm$ncases)
+#nejm$fraq.controls.3=round((total_controls*3)/nejm$ncontrols)
+
+
+#Now can you calculate the power to find the difference between carriers and noncarriers, group 1 and group 2. 
+#where p1=1 and p2=0.15 *tthis relevant for HRD SINCE 15% of breast cancer are HRD
+
+#also, try p1=1 and p2=0.01, *this Relevant for MMR genes as 1% of breast cancer are MMR-D 

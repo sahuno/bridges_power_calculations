@@ -1,0 +1,9 @@
+{
+    "path" : "~/Polak_lab10082019/bridges_breast/data",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

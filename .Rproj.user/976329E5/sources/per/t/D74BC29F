@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1610995776295.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2955654118",
+    "id" : "D74BC29F",
+    "lastKnownWriteTime" : 1616079737,
+    "last_content_update" : 1616079737067,
+    "path" : "~/Polak_lab10082019/bridges_breast/scripts/bridges_loh_tcga_all_tumor_types.R",
+    "project_path" : "scripts/bridges_loh_tcga_all_tumor_types.R",
+    "properties" : {
+        "cursorPosition" : "37,2",
+        "scrollLine" : "17",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

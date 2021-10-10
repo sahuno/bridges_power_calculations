@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1610858736700.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3539332187",
+    "id" : "2BD6978D",
+    "lastKnownWriteTime" : 1611694502,
+    "last_content_update" : 1611694502,
+    "path" : "~/Polak_lab10082019/bridges_breast/scripts/power_calculations.R",
+    "project_path" : "scripts/power_calculations.R",
+    "properties" : {
+        "cursorPosition" : "15,45",
+        "scrollLine" : "8"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
